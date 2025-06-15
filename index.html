@@ -12,7 +12,7 @@
       padding: 0;
       height: 100%;
       font-family: 'Arial', sans-serif;
-      background: url('photo_2025-06-14_23-42-17.jpg') no-repeat center center fixed;
+      background: url('photo_2025-06-14_23-41-43.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fddbb0;
       overflow-x: hidden;
@@ -107,66 +107,16 @@
       text-shadow: 2px 2px 4px #000;
     }
 
-    .rsvp {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-      text-shadow: 1px 1px 3px #000;
-    }
-
-    .rsvp label {
-      margin-right: 20px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    input[type="radio"] {
-      margin-right: 8px;
-      cursor: pointer;
-      transform: scale(1.3);
-      vertical-align: middle;
-    }
-
-    button {
-      font-size: 1.3rem;
-      padding: 10px 25px;
-      background: linear-gradient(145deg, #fddbb0, #f9c993);
+    /* Google Forms iframe */
+    iframe {
+      width: 100%;
+      height: 741px;
       border: none;
       border-radius: 12px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #000;
-      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(145deg, #fbd2a0, #f4b77f);
-    }
-
-    /* Canvas for fireworks */
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
     }
 
     /* Animations */
-    @keyframes pop {
-      0% {
-        transform: scale(0.6);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
     @keyframes fadeInUp {
       from {
         transform: translateY(50px);
@@ -187,44 +137,168 @@
       }
     }
 
-    /* Media queries for responsiveness omitted here for brevity; keep them as in your original code */
+    /* Thank you message style */
+    #thankYouMessage {
+      font-size: 3rem;
+      text-align: center;
+      margin-top: 30px;
+      color: rgb(245, 244, 240);
+      display: none;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    /* Button style */
+    #submitButton {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #f9c993;
+      border: none;
+      font-weight: bold;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    #submitButton:hover {
+      background-color: #f4b94f;
+    }
+
+    /* Canvas for fireworks on top layer */
+    #fireworks {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1000;
+    }
+/* Responsive design */
+@media (max-width: 768px) {
+  .fullscreen-intro .number {
+    font-size: 4rem;
+  }
+
+  .fullscreen-intro .name {
+    font-size: 2.5rem;
+  }
+
+  .container {
+    margin: 20px 10px 60px;
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .details {
+    font-size: 1.1rem;
+  }
+
+  .timer {
+    font-size: 1.2rem;
+  }
+
+  iframe {
+    height: 600px;
+  }
+
+  #thankYouMessage {
+    font-size: 2rem;
+  }
+
+  .arrow svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  #submitButton {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fullscreen-intro .number {
+    font-size: 3.2rem;
+  }
+
+  .fullscreen-intro .name {
+    font-size: 2rem;
+  }
+
+  .details {
+    font-size: 1rem;
+  }
+
+  .timer {
+    font-size: 1rem;
+  }
+
+  iframe {
+    height: 500px;
+  }
+
+  #thankYouMessage {
+    font-size: 1.6rem;
+  }
+
+  .arrow svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  #submitButton {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
   </style>
 </head>
 <body>
-  <section class="fullscreen-intro">
+  <section class="fullscreen-intro" aria-label="Ծննդյան հրավիրատոմսի գլխավոր էջ">
     <span class="number">20</span>
     <span class="name"></span>
-    <div class="arrow">
-      <!-- Սլաքի SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffd8aa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <div class="arrow" aria-label="Նավարկում դեպի հրավիրատոմս">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffd8aa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-hidden="true">
         <line x1="12" y1="5" x2="12" y2="19"></line>
         <polyline points="6 13 12 19 18 13"></polyline>
       </svg>
     </div>
   </section>
 
-  <section class="container" id="invitation">
+  <section class="container" id="invitation" aria-label="Ծննդյան հրավիրատոմս">
     <h1>💌 Սիրով հրավիրում եմ քեզ իմ ծննդյան տարեդարձին</h1>
 
     <div class="details">
-      📍 Bamboo Rooftop Bar & Restaurant<br />
+      📍 Bamboo Rooftop Bar &amp; Restaurant<br />
       📅 Ամսաթիվ՝ Հունիսի 21, 2025<br />
       🕒 Ժամը՝ 19:00
     </div>
 
-    <div class="timer" id="countdown">Հետհաշվարկ...</div>
+    <div class="timer" id="countdown" aria-live="polite" aria-atomic="true">Հետհաշվարկ...</div>
 
-    <form id="rsvpForm">
-      <div class="rsvp">
-        <p>Խնդրում եմ ընտրիր ՝</p>
-        <label><input type="radio" name="rsvp" value="yes" required /> Գալու եմ</label>
-        <label><input type="radio" name="rsvp" value="no" /> Չեմ գալու</label>
-      </div>
-      <button type="submit">Ուղարկել</button>
-    </form>
+<iframe
+  id="formFrame"
+  src="https://docs.google.com/forms/d/e/1FAIpQLSdjsONECXYIANvDrvbJjjeSSX2c2KkXSin72zb8upDtc6XB6Q/viewform?embedded=true"
+  width="100%"
+  height="741"
+  frameborder="0"
+  marginheight="0"
+  marginwidth="0"
+  aria-label="RSVP ձև"
+  title="RSVP ձև"
+></iframe>
+    <button id="submitButton" type="button" aria-label="Ես արդեն ուղարկել եմ">Ես արդեն ուղարկել եմ</button>
+
+    <div id="thankYouMessage" role="alert" aria-live="assertive">
+      Շնորհակալ եմ պատասխանի համար!
+    </div>
   </section>
 
-  <canvas id="fireworks"></canvas>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
 
   <script>
     // Countdown Timer
@@ -237,7 +311,7 @@
 
       if (distance < 0) {
         clearInterval(interval);
-        countdown.innerHTML = "🎉 Ժամանակն է հանդիպել։";
+        countdown.innerHTML = "Ծննդյան օրը արդեն անցել է։";
         return;
       }
 
@@ -249,19 +323,17 @@
       countdown.innerHTML = `${days} օր, ${hours} ժ, ${minutes} ր, ${seconds} վ`;
     }, 1000);
 
-    // RSVP Form
-    const form = document.getElementById("rsvpForm");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const answer = formData.get("rsvp");
+    // Show thank you message on button click
+    const iframe = document.getElementById('formFrame');
+    const thankYou = document.getElementById('thankYouMessage');
+    const btn = document.getElementById('submitButton');
 
-      if (answer === "yes") {
-        alert("Շնորհակալ եմ, որ կողքիս եք և իմ ուրախության մասն եք");
-      } else if (answer === "no") {
-        alert("Շնորհակալություն պատասխանի համար");
-      }
+    btn.addEventListener('click', () => {
+      iframe.style.display = 'none';
+      thankYou.style.display = 'block';
+      btn.style.display = 'none';
     });
+
 
     // Fireworks Animation
     const canvas = document.getElementById('fireworks');
